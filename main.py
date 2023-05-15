@@ -15,7 +15,7 @@ def on_click(x, y, button, pressed):
         return False
 
     
-type = Controller()
+kb = Controller()
 
 wordlist = open("wordlist.txt", "r")
 
@@ -25,21 +25,21 @@ for line in wordlist:
             listener.join()
     if ( keybind_pressed ):
         for char in line:
-            type.press(char)
-            type.release(char)
+            kb.press(char)
+            kb.release(char)
             time.sleep(0.01)
-        type.press(Key.enter)
+        kb.press(Key.enter)
 
         upper = True
         for char in line:
             if upper:
-                type.press(char.upper())
+                kb.press(char.upper())
                 upper = False
             else:
-                type.press(char)
-            type.release(char)
+                kb.press(char)
+            kb.release(char)
             time.sleep(0.01)
-        type.press(Key.enter)
+        kb.press(Key.enter)
 
         time.sleep(0.01)
         keybind_pressed = False
