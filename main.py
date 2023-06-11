@@ -30,16 +30,5 @@ for line in wordlist:
             time.sleep(0.01)
         kb.press(Key.enter)
 
-        upper = True
-        for char in line:
-            if upper:
-                kb.press(char.upper())
-                upper = False
-            else:
-                kb.press(char)
-            kb.release(char)
-            time.sleep(0.01)
-        kb.press(Key.enter)
-
         time.sleep(0.01)
         keybind_pressed = False
